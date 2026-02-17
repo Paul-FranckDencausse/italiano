@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Conjugaison italienne</title>
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conjugaison italienne</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
 
 body {
     margin: 0;
@@ -17,181 +18,181 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-form {
-    margin: 12px 0;
-}
-
 .container {
     background: #fffaf4;
-    padding: 40px 50px;
+    padding: 40px;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    text-align: center;
     max-width: 420px;
     width: 100%;
 }
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
     color: #7a3e2b;
+    text-align: center;
     margin-bottom: 30px;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 12px;
-    border: 1px solid #e0c3a3;
-    background-color: #fff;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: #c76b4f;
-    box-shadow: 0 0 0 3px rgba(199,107,79,0.2);
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    text-align: left;
     font-size: 0.8rem;
     margin-bottom: 4px;
     color: #7a3e2b;
     font-weight: 500;
 }
 
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #e0c3a3;
+}
+
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
     border-radius: 30px;
     border: none;
     background: #c76b4f;
     color: white;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
 button:hover {
     background: #a9543c;
-    transform: translateY(-2px);
 }
 
-            </style>
-    </head>
-    <body>
-       <div class="container">
-         <form action="">
-            <input type="text" id="verbe" placeholder="Entrez un infinitif">
-        </form>
-        <form action="">
-            <label for="tense">Temps</label>
-            <select name="" id="tense">
-                <option value="present">Présent</option>
-                <option value="imparfait">Imparfait</option>
-                <option value="futur">Futur</option>
-                <option value="passe_compose">Passé composé</option>
-            </select>
-        </form>
-        <form action="">
-            <label for="mode">Mode:</label>
-            <select name="" id="mode">
-                <option value="indicatif">Indicatif</option>
-                <option value="subjonctif">Subjonctif</option>
-                <option value="conditionnel">Conditionnel</option>
-                <option value="imperatif">Imperatif</option>
-                <option value="gerondif">Gérondif</option>
-            </select>
-        </form>
-        <form action="">
-            <label for="groupe">Groupe de verbes:</label>
-            <select name="" id="groupe">
-                <option value="are">-are</option>
-                <option value="ere">-ere</option>
-                <option value="ire">-ire</option>
-            </select>
-        </form>
-        <form action="">
-            <label for="pronom">Pronom:</label>
-            <select name="" id="pronom">
-                <option value="io">Io</option>
-                <option value="tu">Tu</option>
-                <option value="lui">Lui</option>
-                <option value="noi">Noi</option>
-                <option value="voi">Voi</option>
-                <option value="loro">Loro</option>
-            </select>
-        </form>
-        <!-- <form action="">
-            <label for="etre">Etre</label>
-            <select name="" id="etre">
-                <option value="essere">Essere</option>
-                <option value="stare">Stare</option>
-            </select>
-        </form> -->
-        <button onclick="conjuguer()">Valider</button>
-       </div>
-    </body>
-    <footer>
+.resultat {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: #7a3e2b;
+}
+</style>
+</head>
 
+<body>
 
-    </footer>
-    <script src="script.js"></script>
-    <script>
-let verbeInput = document.getElementById("verbe");
-let tenseSelect = document.getElementById("tense");
-let modeSelect = document.getElementById("mode");
-let groupeSelect = document.getElementById("groupe");
-let etreSelect = document.getElementById("etre");
+<div class="container">
+<h1>Conjugazione Italiana</h1>
 
-verbeInput.addEventListener("input", function() {
-    let verbe = verbeInput.value;
-    let tense = tenseSelect.value;
-    let mode = modeSelect.value;
-    let groupe = groupeSelect.value;
-    // let etre = etreSelect.value;
-    conjuguer(verbe, tense, mode, groupe/*, etre*/);
-});
-function conjuguer(verbe, tense, mode, groupe/*, etre*/) {
+<div class="form-group">
+    <input type="text" id="verbe" placeholder="Entrez un infinitif">
+</div>
+
+<div class="form-group">
+    <label>Temps</label>
+    <select id="tense">
+        <option value="present">Présent</option>
+        <option value="imparfait">Imparfait</option>
+        <option value="futur">Futur</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Mode</label>
+    <select id="mode">
+        <option value="indicatif">Indicatif</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Groupe</label>
+    <select id="groupe">
+        <option value="are">-are</option>
+        <option value="ere">-ere</option>
+        <option value="ire">-ire</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Pronom</label>
+    <select id="pronom">
+        <option value="io">io</option>
+        <option value="tu">tu</option>
+        <option value="lui">lui/lei</option>
+        <option value="noi">noi</option>
+        <option value="voi">voi</option>
+        <option value="loro">loro</option>
+    </select>
+</div>
+
+<button id="valider" type="button">Conjuguer</button>
+
+<div class="resultat" id="resultat"></div>
+
+</div>
+
+<script>
+
+const terminaisons = {
+    present: {
+        are: ["o","i","a","iamo","ate","ano"],
+        ere: ["o","i","e","iamo","ete","ono"],
+        ire: ["o","i","e","iamo","ite","ono"]
+    },
+    imparfait: {
+        are: ["avo","avi","ava","avamo","avate","avano"],
+        ere: ["evo","evi","eva","evamo","evate","evano"],
+        ire: ["ivo","ivi","iva","ivamo","ivate","ivano"]
+    },
+    futur: {
+        all: ["ò","ai","à","emo","ete","anno"]
+    }
+};
+
+const personnes = ["io","tu","lui","noi","voi","loro"];
+
+function getRadical(verbe, groupe, tense) {
+
+    if (tense === "futur") {
+        if (groupe === "are") {
+            return verbe.slice(0, -3) + "er";
+        }
+        return verbe.slice(0, -1);
+    }
+
+    return verbe.slice(0, -3);
+}
+
+function conjuguer() {
+
+    const verbe = document.getElementById("verbe").value.trim().toLowerCase();
+    const tense = document.getElementById("tense").value;
+    const groupe = document.getElementById("groupe").value;
+    const pronom = document.getElementById("pronom").value;
+
     if (!verbe.endsWith(groupe)) {
-        console.log("Le groupe ne correspond pas au verbe.");
+        document.getElementById("resultat").innerText =
+            "Le groupe ne correspond pas au verbe.";
         return;
     }
 
-    let radical = verbe.slice(0, -3);
-    let terminaisons = [];
+    const radical = getRadical(verbe, groupe, tense);
+    const index = personnes.indexOf(pronom);
 
-    if (mode === "indicatif" && tense === "present") {
-        if (groupe === "are") {
-            terminaisons = ["o", "i", "a", "iamo", "ate", "ano"];
-        } else if (groupe === "ere") {
-            terminaisons = ["o", "i", "e", "iamo", "ete", "ono"];
-        } else if (groupe === "ire") {
-            terminaisons = ["o", "i", "e", "iamo", "ite", "ono"];
-        }
-    }
-    else if  (mode === "indicatif" && tense === "imparfait"){
-        if (groupe === "are"){
-            terminaisons = ["avo","avi","ava","avamo","avate","avano"];
-        } else if (groupe === "ere"){
-            terminaisons = ["evo","evi","eva","evamo","evate","evano"];
-        } else if (groupe === "ire"){
-            terminaisons = ["ivo","ivi","iva","ivamo","ivate","ivano"];
-        }
+    let terminaison;
+
+    if (tense === "futur") {
+        terminaison = terminaisons.futur.all[index];
+    } else {
+        terminaison = terminaisons[tense][groupe][index];
     }
 
-    let personnes = ["io", "tu", "lui/lei", "noi", "voi", "loro"];
+    const resultat = pronom + " " + radical + terminaison;
 
-    let conjugaison = personnes.map((p, i) => 
-        p + " " + radical + terminaisons[i]
-    );
+    document.getElementById("resultat").innerText = resultat;
+}
 
-    console.log(conjugaison);
-    alert(conjugaison.join("\n"));
-};
+document.getElementById("valider").addEventListener("click", conjuguer);
 
-    </script>
+</script>
+
+</body>
 </html>
