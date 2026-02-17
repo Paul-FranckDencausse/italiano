@@ -1,5 +1,6 @@
 const terminaisons = {
-    present: {
+   indicatif : {
+     present: {
         are: ["o","i","a","iamo","ate","ano"],
         ere: ["o","i","e","iamo","ete","ono"],
         ire: ["o","i","e","iamo","ite","ono"]
@@ -17,11 +18,19 @@ const terminaisons = {
         ere: ["uto"],
         ire: ["ito"]
     }
+   },
+   subjonctif: {
+        present: {
+            are: ["i","i","i","iamo","iate","ino"],
+            ere: ["a","a","a","iamo","iate","ano"],
+            ire: ["a","a","a","iamo","iate","ano"]
+        } 
+   }
 };
 
 const personnes = ["io","tu","lui","noi","voi","loro"];
 
-function getRadical(verbe, groupe, tense) {
+function getRadical(verbe, groupe, tense, mode) {
 
     if (tense === "futur") {
         if (groupe === "are") {
@@ -39,6 +48,7 @@ function conjuguer() {
     const tense = document.getElementById("tense").value;
     const groupe = document.getElementById("groupe").value;
     const pronom = document.getElementById("pronom").value;
+    const mode = document.getElementById("mode").value;
 
     if (!verbe.endsWith(groupe)) {
         document.getElementById("resultat").innerText =
@@ -52,14 +62,14 @@ function conjuguer() {
     let terminaison;
 
     if (tense === "futur") {
-        terminaison = terminaisons.futur.all[index];
+        terminaison = terminaisons[mode][tense].all[index];
     } else {
-        terminaison = terminaisons[tense][groupe][index];
+        terminaison = terminaisons[mode][tense][groupe][index];
     }
 
     const resultat = pronom + " " + radical + terminaison;
-
     document.getElementById("resultat").innerText = resultat;
 }
+
 
 document.getElementById("valider").addEventListener("click", conjuguer);
