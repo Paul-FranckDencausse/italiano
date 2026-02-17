@@ -4,77 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conjugaison italienne</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f6e7d8, #f2c6a0);
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    background: #fffaf4;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    max-width: 420px;
-    width: 100%;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    color: #7a3e2b;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-size: 0.8rem;
-    margin-bottom: 4px;
-    color: #7a3e2b;
-    font-weight: 500;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 12px;
-    border: 1px solid #e0c3a3;
-}
-
-button {
-    width: 100%;
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 30px;
-    border: none;
-    background: #c76b4f;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #a9543c;
-}
-
-.resultat {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: 500;
-    color: #7a3e2b;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -130,75 +60,7 @@ button:hover {
 
 </div>
 
-<script>
-
-const terminaisons = {
-    present: {
-        are: ["o","i","a","iamo","ate","ano"],
-        ere: ["o","i","e","iamo","ete","ono"],
-        ire: ["o","i","e","iamo","ite","ono"]
-    },
-    imparfait: {
-        are: ["avo","avi","ava","avamo","avate","avano"],
-        ere: ["evo","evi","eva","evamo","evate","evano"],
-        ire: ["ivo","ivi","iva","ivamo","ivate","ivano"]
-    },
-    futur: {
-        all: ["ò","ai","à","emo","ete","anno"]
-    },
-    passeCompose: {
-        are: ["ato"],
-        ere: ["uto"],
-        ire: ["ito"]
-    }
-};
-
-const personnes = ["io","tu","lui","noi","voi","loro"];
-
-function getRadical(verbe, groupe, tense) {
-
-    if (tense === "futur") {
-        if (groupe === "are") {
-            return verbe.slice(0, -3) + "er";
-        }
-        return verbe.slice(0, -1);
-    }
-
-    return verbe.slice(0, -3);
-}
-
-function conjuguer() {
-
-    const verbe = document.getElementById("verbe").value.trim().toLowerCase();
-    const tense = document.getElementById("tense").value;
-    const groupe = document.getElementById("groupe").value;
-    const pronom = document.getElementById("pronom").value;
-
-    if (!verbe.endsWith(groupe)) {
-        document.getElementById("resultat").innerText =
-            "Le groupe ne correspond pas au verbe.";
-        return;
-    }
-
-    const radical = getRadical(verbe, groupe, tense);
-    const index = personnes.indexOf(pronom);
-
-    let terminaison;
-
-    if (tense === "futur") {
-        terminaison = terminaisons.futur.all[index];
-    } else {
-        terminaison = terminaisons[tense][groupe][index];
-    }
-
-    const resultat = pronom + " " + radical + terminaison;
-
-    document.getElementById("resultat").innerText = resultat;
-}
-
-document.getElementById("valider").addEventListener("click", conjuguer);
-
-</script>
+<script src="script.js"> </script>
 
 </body>
 </html>
