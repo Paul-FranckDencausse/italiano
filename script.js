@@ -27,6 +27,7 @@ const terminaisons = {
         } 
    }
 };
+let bonneReponse = "";
 
 const personnes = ["io","tu","lui","noi","voi","loro"];
 
@@ -66,10 +67,33 @@ function conjuguer() {
     } else {
         terminaison = terminaisons[mode][tense][groupe][index];
     }
+const resultat = pronom + " " + radical + terminaison;
 
-    const resultat = pronom + " " + radical + terminaison;
-    document.getElementById("resultat").innerText = resultat;
+bonneReponse = resultat; // on stocke
+
+document.getElementById("resultat").innerText = resultat;
 }
+document.getElementById("action").addEventListener("click", function() {
 
+    const answerInput = document.getElementById("answer");
+    const answer = answerInput.value.trim().toLowerCase();
 
-document.getElementById("valider").addEventListener("click", conjuguer);
+    if (!bonneReponse) {
+        conjuguer();
+        this.innerText = "Vérifier";
+        return;
+    }
+
+    if (
+        answer.replace(/\s+/g, " ") === 
+        bonneReponse.toLowerCase().replace(/\s+/g, " ")
+    ) {
+        alert("Correct !");
+    } else {
+        alert("Non 😈 La bonne réponse était : " + bonneReponse);
+    }
+
+    bonneReponse = "";
+    answerInput.value = "";
+    this.innerText = "Générer";
+});
