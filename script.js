@@ -35,6 +35,13 @@ const terminaisons = {
             ere: ["uto"],
             ire: ["ito"]
     }
+   },
+   conditionnel: {
+        present: {
+            are: ["erei","eresti","erebbe","eremmo","ereste","erebbero"],
+            ere: ["erei","eresti","erebbe","eremmo","ereste",'erebbero'],
+            ire: ["irei","iresti","irebbe","iremmo","ireste","irebbero"]
+        }
    }
 };
 let bonneReponse = "";
