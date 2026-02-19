@@ -29,7 +29,12 @@ const terminaisons = {
             are: ["assi","assi","asse","assimo","aste","assero"],
             ere: ["essi","essi","esse","essimo","este","essero"],
             ire: ["issi","issi","isse","issimo","iste","issero"]
-        }
+        },
+         passeCompose: {
+            are: ["ato"],
+            ere: ["uto"],
+            ire: ["ito"]
+    }
    }
 };
 let bonneReponse = "";
