@@ -24,7 +24,12 @@ const terminaisons = {
             are: ["i","i","i","iamo","iate","ino"],
             ere: ["a","a","a","iamo","iate","ano"],
             ire: ["a","a","a","iamo","iate","ano"]
-        } 
+        }, 
+        imparfait: {
+            are: ["assi","assi","asse","assimo","aste","assero"],
+            ere: ["essi","essi","esse","essimo","este","essero"],
+            ire: ["issi","issi","isse","issimo","iste","issero"]
+        }
    }
 };
 let bonneReponse = "";
