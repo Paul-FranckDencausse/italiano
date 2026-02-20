@@ -54,6 +54,11 @@ const terminaisons = {
         ere: ["i","a","iamo","ete","ano"],
         ire: ["i","a","iamo","ite","ano"]
     }
+   },
+   gerondif: {
+    are: ["ando"],
+    ere: ["endo"],
+    ire: ["endo"]
    }
 };
 let bonneReponse = "";
