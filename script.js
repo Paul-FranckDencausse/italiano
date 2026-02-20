@@ -41,7 +41,12 @@ const terminaisons = {
             are: ["erei","eresti","erebbe","eremmo","ereste","erebbero"],
             ere: ["erei","eresti","erebbe","eremmo","ereste",'erebbero'],
             ire: ["irei","iresti","irebbe","iremmo","ireste","irebbero"]
-        }
+        },
+     passeCompose: {
+        are: ["ato"],
+        ere: ["uto"],
+        ire: ["ito"]
+    }
    }
 };
 let bonneReponse = "";
