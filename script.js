@@ -47,6 +47,13 @@ const terminaisons = {
         ere: ["uto"],
         ire: ["ito"]
     }
+   },
+   imperatif: {
+    present: {
+        are: ["a","i","iamo","ate","ino"],
+        ere: ["i","a","iamo","ete","ano"],
+        ire: ["i","a","iamo","ite","ano"]
+    }
    }
 };
 let bonneReponse = "";
